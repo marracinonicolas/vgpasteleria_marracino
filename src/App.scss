@@ -63,6 +63,11 @@ header{
             text-transform: uppercase;
         }
     }
+    .cartWidget{
+        display: flex;
+        align-items: center;
+        color: $color-principal;
+    }
 
 }
 
