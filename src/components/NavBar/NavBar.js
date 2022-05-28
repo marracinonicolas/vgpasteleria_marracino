@@ -1,17 +1,21 @@
 import NavItem from '../NavItem/NavItem';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
     return (
-        <nav>
-            <NavItem label="Tortas" />
-            <NavItem label="Cookies" />
-            <NavItem label="Cakepops" />
-            <NavItem label="Tartas" />
-            <NavItem label="Alfajores" />
-            <NavItem label="Accesorios" />
-
+        <header>
+            <div className="brand"><span>VG</span><small>pastelería</small> </div>
+            <nav>
+                <NavItem label="Tortas" refItem="tortas" />
+                <NavItem label="Cookies" refItem="cookies" />
+                <NavItem label="Cakepops" refItem="cakepops" />
+                <NavItem label="Tartas" refItem="tartas" />
+                <NavItem label="Alfajores" refItem="alfajores" />
+                <NavItem label="Accesorios" refItem="accesorios" />
+            </nav>
+            <CartWidget />
+        </header>
         
-        </nav>
     )
 }
 

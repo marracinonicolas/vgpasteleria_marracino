@@ -1,7 +1,7 @@
-const NavItem = (props) =>{
+const NavItem = ({label, refItem}) =>{
     return (
         <button>
-            {props.label}
+            <a href={refItem}>{label}</a>
         </button>
     )
 }
