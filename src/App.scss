@@ -71,6 +71,36 @@ header{
 
 }
 
+/*ITEM LIST*/
+.card-list{
+    display: flex;
+    list-style: none;
+}
+
+/*ITEM*/
+.card-item{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 40px;
+    .card-img{
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .card-footer{
+        h2{
+            color: $color-secondary;
+            font-weight: 300;
+            font-size: 1.4rem; 
+            margin: 0;
+            text-transform: capitalize;
+        }
+        .card-price{
+            color: $color-principal;
+        }
+    }
+}
 
 
 
