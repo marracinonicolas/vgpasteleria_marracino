@@ -6,7 +6,6 @@ import { useContext } from 'react'
 
 const CartWidget = () =>{
     const {totalQuantity} = useContext(CartContext)
-    console.log(totalQuantity)
     return(
         <>
             <NavLink to='cart/' className='cartWidget'>

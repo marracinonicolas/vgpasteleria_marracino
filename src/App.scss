@@ -217,6 +217,10 @@ header{
 
 }
 
+.cart-list{
+    display: flex;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {

@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from "react"
-import { getProducts, getProductsByCategory } from "../../asyncmock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase/index"
 
 const ItemListContainer = ({greeting}) =>{
     const [products, setProducts] = useState([])
@@ -13,23 +15,21 @@ const ItemListContainer = ({greeting}) =>{
 
     useEffect(()=>{
         setLoading(true)
-        if(!categoryId){
-            getProducts().then(response => {
-                setProducts(response);
-            }).catch(error => {
-                console.log(error)
-            }).finally(() => {
-                setLoading(false);
+        const conllectionRef = categoryId ? (
+            query(collection(db, 'products'), where('category', '==', categoryId))
+        ) : ( collection(db,'products') )
+
+        getDocs(conllectionRef).then(response => {
+            console.log(response)
+            const productsFormatted = response.docs.map(doc => {
+                return { id: doc.id, ...doc.data()  }
             })
-        }else{
-            getProductsByCategory(categoryId).then(response => {
-                setProducts(response);
-            }).catch(error => {
-                console.log(error)
-            }).finally(() => {
-                setLoading(false);
-            })
-        }
+            setProducts(productsFormatted)
+        }).catch(error =>{
+            console.log(error)
+        }).finally(() => {
+            setLoading(false)
+        })
         
     }, [categoryId])
     if(loading){
