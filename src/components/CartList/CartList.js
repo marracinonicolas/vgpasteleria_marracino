@@ -21,14 +21,19 @@ const CartList = () =>{
     }
 
     return(
-        <>
-
             <div className="cart-list">
+                <div className="cart-header">
+                    <div></div>
+                    <div>Cantidad</div>
+                    <div>Precio</div>
+                    <div></div>
+                </div>
                 {cart.map( i => <CartItem key={i.id} {...i}></CartItem> )}
+                <div className="cart-header">
+                    <h2>Total: {totalPrice()}</h2>
+                </div>
+                    
             </div>
-            <hr></hr>
-            <h2>Total: {totalPrice()}</h2>
-        </>
     )    
 }
 

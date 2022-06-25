@@ -8,7 +8,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase/index"
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = () =>{
     const [products, setProducts] = useState([])
     const { categoryId } = useParams();
     const [loading, setLoading] = useState(true)
@@ -20,7 +20,6 @@ const ItemListContainer = ({greeting}) =>{
         ) : ( collection(db,'products') )
 
         getDocs(conllectionRef).then(response => {
-            console.log(response)
             const productsFormatted = response.docs.map(doc => {
                 return { id: doc.id, ...doc.data()  }
             })
