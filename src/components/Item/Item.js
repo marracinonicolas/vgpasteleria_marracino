@@ -8,8 +8,8 @@ const Item = ({id, name, img, price}) =>{
             <div className="card-footer"> 
                 <h2>{name}</h2>
                 <span className="card-price">${price}</span>
-                <Link className="view-detail" to={`/detail/${id}`}>ver más</Link>
             </div>
+            <Link className="view-detail" to={`/detail/${id}`}>ver más</Link>
         </li>
     )
 }

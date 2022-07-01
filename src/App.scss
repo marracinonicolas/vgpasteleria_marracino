@@ -124,12 +124,12 @@ header{
     max-width: 480px;
     margin: 40px;
     border: 3px transparent solid;
+    position: relative;
+
     &:hover{
-        border-color: $color-grey;
-        .card-footer{
-            .view-detail{
-                opacity: 1;
-            }
+        .view-detail{
+            opacity: 1;
+            z-index: 2;
         }
     }
 
@@ -137,7 +137,23 @@ header{
         width: 100%;
         max-width: 480px;
     }
-    
+    .view-detail{
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: $color-accent;
+        font-weight: 500;
+        background: $color-grey;
+        opacity: 0;
+        animation: all 1s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .card-footer{
         display: flex;
@@ -148,14 +164,7 @@ header{
             font-weight: 500;
         }
         
-        .view-detail{
-            font-size: 0.8rem;
-            padding: 10px;
-            background: $color-grey;
-            margin-top: 10px;
-            opacity: 0;
-            animation: all 1s;
-        }
+        
         
     }
 }
