@@ -3,14 +3,20 @@ import CartContext from "../../context/CartContext"
 import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 
+import { useNotification } from "../../notification/Notification"
+
 const ItemDetail = ({ id, name, img, price, description, stock }) => {
     const [quantityAdded, setQuantityAdded] = useState(0)
 
     const {addItem, clearCart} = useContext(CartContext)
 
+    const setNotification = useNotification()
+
     const handleOnAdd = (quantity) => {
+        setNotification('success',`Se agregó ${quantity} ${name} al carrito`, 4000)
         addItem({id, name, price, quantity})
         setQuantityAdded(quantity)
+        
     }
 
     return(
@@ -23,7 +29,7 @@ const ItemDetail = ({ id, name, img, price, description, stock }) => {
                 {
                     quantityAdded === 0 
                         ? <ItemCount stock={stock} onAdd={handleOnAdd}/>
-                        : <Link to='/cart'> <button className="add-to-cart">FINALIZAR COMPRA</button></Link>
+                        : <Link to='/cart'> <button className="add-to-cart">VER CARRITO</button></Link>
                 }
             </div>
         </div>

@@ -5,9 +5,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import CartContainer from './components/CartContainer/CartContainer';
 import Checkout from "./components/Checkout/Checkout";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
 import { CartProvider } from './context/CartContext'
-import Notification from "./notification/Notification";
+import { NotificationProvider } from './notification/Notification'
 
 
 
@@ -15,19 +14,20 @@ function App() {
     
     return (
         <div className="App">
-            <CartProvider>
-                <BrowserRouter>
-                    <Notification></Notification>
-                    <NavBar />
-                    <Routes>
-                        <Route path='/' element={<ItemListContainer />}/>
-                        <Route path='/category/:categoryId' element={<ItemListContainer />}/>
-                        <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
-                        <Route path='/cart' element={<CartContainer />} />
-                        <Route path='/checkout' element={<Checkout />} />
-                    </Routes>
-                </BrowserRouter>
-            </CartProvider>
+            <NotificationProvider>
+                <CartProvider>
+                    <BrowserRouter>
+                        <NavBar />
+                        <Routes>
+                            <Route path='/' element={<ItemListContainer />}/>
+                            <Route path='/category/:categoryId' element={<ItemListContainer />}/>
+                            <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
+                            <Route path='/cart' element={<CartContainer />} />
+                            <Route path='/checkout' element={<Checkout />} />
+                        </Routes>
+                    </BrowserRouter>
+                </CartProvider>
+            </NotificationProvider>
         </div>
     );
 }

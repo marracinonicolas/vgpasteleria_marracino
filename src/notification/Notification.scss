@@ -1,0 +1,24 @@
+.notification{
+    position : absolute;
+    bottom : 0px;
+    right : 0px;
+    width : 100%;
+    height : auto;
+    background-color : #f2f2f2;
+    color : #080F0F;
+    padding : 20px;
+    font-size: 1.4rem;
+
+    &.success{
+        background-color: #87f7a995;
+    }
+
+    &.error{
+        background-color: #f7879a95;
+    }
+
+    &.information{
+        background-color: #f7e58795;
+    }
+
+}

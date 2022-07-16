@@ -1,29 +1,42 @@
-import { createContext } from "react";
+import { useState, createContext, useContext } from "react";
+import './Notification.scss'
 
-const Notification = ({message, serverity}) => {
+const Notification = ({message, severity}) => {
 
-    const notificationStyle = {
-        position : 'absolute',
-        top : 100,
-        right : 30,
-        width : 'auto',
-        height : 'auto',
-        background : 'green',
-        color : 'white',
-        padding : '20px'
-    }
-
+    if(message === '') return
 
     return(
-        <div style={notificationStyle}>
-            <span>mensaje</span>
+        <div className={`notification ${severity || ''}`}>
+            <span>{message}</span>
         </div>
     )
 }
 
 const NotificationContext = createContext()
-const NotificationProvider = ({children}) => {
-    return
+
+export const NotificationProvider = ({children}) => {
+
+    const [msgConfig, setMsgConfig] = useState({
+        severity: 'success',
+        message: ''
+    })
+    const setNotification = (sev, msg, timeout = 4000) => {
+        setMsgConfig({severity: sev, message: msg })
+        setTimeout(()=>{
+            setMsgConfig({...msgConfig, message:''})
+        }, timeout)
+    }
+
+
+
+    return(
+        <NotificationContext.Provider value={setNotification} >
+            <Notification message={msgConfig.message} severity={msgConfig.severity} /> 
+            {children}
+        </NotificationContext.Provider>
+    )
 }
 
-export default Notification
+export const useNotification = () => {
+    return useContext(NotificationContext)
+}

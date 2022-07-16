@@ -233,6 +233,8 @@ header{
         color: white;
         padding: 0 40px;
         height: 50px;
+        width: 100%;
+        margin-top: 10px;
     }
     .cart-list{
         display: flex;
@@ -273,10 +275,98 @@ header{
             }
 
         }
+        .cart-footer{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .clean-cart{
+                font-size: 0.625rem;
+                opacity: .7;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        
+        }
 
 
     }
 }
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: auto;
+    padding-top: 50px;
+
+    .buyerForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .input-list{
+            width: 90%;
+            max-width: 500px;
+            .input{
+                width: 90%;
+                height: 40px;
+                margin: 10px;
+                padding: 10px;
+                border: 1.5px solid;
+                border-color: #4E7B6A80;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                -webkit-transition: 0.3s;
+                transition: 0.3s;
+                outline: none;
+                color: $color-black;
+    
+                &:focus{
+                    border-color: $color-principal;
+                }
+                &:hover{
+                    border-color: $color-principal;
+                }
+            }
+        }
+        
+
+    }
+
+    .generate-order{
+        background-color: #F786AA95;
+        color: white;
+        padding: 0 40px;
+        height: 50px;
+        width: 100%;
+        max-width: 600px;
+        margin: 10px;
+        border-radius: 5px;
+        &:hover{
+            background-color: $color-accent;
+        }
+    }
+
+}
+
+.btn-to-nav{
+    width: 80%;
+    max-width: 600px;
+    height: 50px;
+    color: $color-secondary;
+    font-size: 1rem;
+    background-color: #F2F2F295;
+    margin: 10px;
+
+    &:hover{
+        background-color: $color-grey;
+    }
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
