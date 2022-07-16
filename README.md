@@ -24,4 +24,4 @@ Tambien podrás ver los errores en la consola del navegador.
 Listo para usar!!
 
 
-![](https://github.com/marracinonicolas/vgpasteleria_marracino/blob/main/navegation_vg.gif)
+![](https://github.com/marracinonicolas/vgpasteleria_marracino/blob/main/navegation_vg2.gif)
