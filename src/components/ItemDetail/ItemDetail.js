@@ -8,12 +8,12 @@ import { useNotification } from "../../notification/Notification"
 const ItemDetail = ({ id, name, img, price, description, stock }) => {
     const [quantityAdded, setQuantityAdded] = useState(0)
 
-    const {addItem, clearCart} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     const setNotification = useNotification()
 
     const handleOnAdd = (quantity) => {
-        setNotification('success',`Se agregó ${quantity} ${name} al carrito`, 4000)
+        setNotification('success',`Se agregó ${quantity} ${name} al carrito`, 3000)
         addItem({id, name, price, quantity})
         setQuantityAdded(quantity)
         

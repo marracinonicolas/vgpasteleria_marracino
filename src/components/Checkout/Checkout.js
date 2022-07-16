@@ -33,12 +33,11 @@ const Checkout = () => {
     }
 
     const handleCreateOrder = () =>{
-        console.log('generar orden')
         const objOrder = {
             buyer: { ...buyerForm },
             items: cart,
             total: totalPrice(),
-            date: new Date().toDateString()
+            date: new Date().toLocaleDateString()
 
         }
         
@@ -52,7 +51,6 @@ const Checkout = () => {
         getDocs( query(collectionRef, where(documentId(), 'in', ids)) )
         .then(
             response=> {
-                console.log(response)
                 setLoading(true)
                 response.docs.forEach( doc => {
                     const dataDoc = doc.data()
@@ -71,7 +69,6 @@ const Checkout = () => {
                 const collectionRef = collection(db, 'orders')
                 return addDoc(collectionRef, objOrder)
             }else{
-                
                 return Promise.reject({ type: 'outOfStock', products: outOfStock })
             }
         }).then(({id})=>{           

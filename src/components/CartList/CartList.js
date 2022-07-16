@@ -15,7 +15,6 @@ const CartList = () =>{
                 <Link to='/'>
                     <button className="btn-to-nav">Ir a comprar</button>
                 </Link>
-                
             </>
         )
     }
@@ -36,7 +35,6 @@ const CartList = () =>{
                     <button className="clean-cart" onClick={clearCart}>VACIAR CARRITO</button>
                 </div>
                 <Link to='/checkout'><button className="generate-order">FINALIZAR COMPRA</button></Link>
-                {/* <button className="generate-order" onClick={handleCreateOrder}>FINALIZAR COMPRA</button> */}
                     
             </div>
     )    

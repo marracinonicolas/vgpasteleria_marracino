@@ -6,7 +6,6 @@ const ItemCount = ({ onAdd, stock, initial = 1 }) => {
 
     const handleChange = (e) => {
         if(e.target.valueAsNumber <= stock && e.target.valueAsNumber > 0){
-            console.log(typeof e.target.valueAsNumber)
             setCount(e.target.valueAsNumber)
         }
     }

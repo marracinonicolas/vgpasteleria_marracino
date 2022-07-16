@@ -1,5 +1,5 @@
 .notification{
-    position : absolute;
+    position : fixed;
     bottom : 0px;
     right : 0px;
     width : 100%;
@@ -8,6 +8,7 @@
     color : #080F0F;
     padding : 20px;
     font-size: 1.4rem;
+    z-index: 99999;
 
     &.success{
         background-color: #87f7a995;
